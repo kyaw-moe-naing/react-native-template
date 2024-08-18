@@ -1,9 +1,9 @@
-interface HookParams { }
+interface HookParams {}
 
-interface HookResult { }
+interface HookResult {}
 
 const useHook = (parmas: HookParams): HookResult => {
   return {};
-}
+};
 
 export default useHook;

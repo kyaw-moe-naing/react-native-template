@@ -1,6 +1,6 @@
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import BottomTabBar from 'components/tab/BottomTab';
-import { tabs } from 'navigation/routes';
+import {tabs} from 'navigation/routes';
 
 const Tab = createBottomTabNavigator<RootTabParamList>();
 
@@ -10,7 +10,7 @@ function TabContainer() {
   return (
     <Tab.Navigator
       tabBar={props => <BottomTabBar {...props} />}
-      screenOptions={{ headerShown: false }}>
+      screenOptions={{headerShown: false}}>
       {tabs.map(tab => (
         <Tab.Screen key={tab.name} name={tab.name} component={tab.component} />
       ))}

@@ -1,22 +1,23 @@
-import { DrawerContentComponentProps } from "@react-navigation/drawer"
-import { useTheme } from "@react-navigation/native";
-import { Button, StyleSheet, View } from "react-native"
-import { useSafeAreaInsets } from "react-native-safe-area-context";
+import {DrawerContentComponentProps} from '@react-navigation/drawer';
+import {useTheme} from '@react-navigation/native';
+import {Button, StyleSheet, View} from 'react-native';
+import {useSafeAreaInsets} from 'react-native-safe-area-context';
 
 function SideDrawer(props: DrawerContentComponentProps) {
-  const { colors } = useTheme();
-  const { state, navigation } = props;
+  const {colors} = useTheme();
+  const {state, navigation} = props;
   const insets = useSafeAreaInsets();
 
   return (
-    <View style={[
-      styles.drawer,
-      {
-        paddingTop: insets.top,
-        paddingBottom: insets.bottom,
-        backgroundColor: colors.background,
-      },
-    ]}>
+    <View
+      style={[
+        styles.drawer,
+        {
+          paddingTop: insets.top,
+          paddingBottom: insets.bottom,
+          backgroundColor: colors.background,
+        },
+      ]}>
       {state.routes.map((route, index) => {
         const label: string = route.name;
 
@@ -45,12 +46,11 @@ function SideDrawer(props: DrawerContentComponentProps) {
         );
       })}
     </View>
-  )
+  );
 }
 
 const styles = StyleSheet.create({
-  drawer: {
-  },
+  drawer: {},
 });
 
-export default SideDrawer
+export default SideDrawer;

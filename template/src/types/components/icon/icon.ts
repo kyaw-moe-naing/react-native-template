@@ -3,4 +3,4 @@ interface IconProps {
   color?: string;
 }
 
-export { type IconProps }
+export {type IconProps};

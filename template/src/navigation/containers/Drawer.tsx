@@ -1,6 +1,6 @@
-import { createDrawerNavigator } from '@react-navigation/drawer';
+import {createDrawerNavigator} from '@react-navigation/drawer';
 import SideDrawer from 'components/drawer/SideDrawer';
-import { tabs } from 'navigation/routes';
+import {tabs} from 'navigation/routes';
 
 const Drawer = createDrawerNavigator<RootDrawerParamList>();
 
@@ -10,9 +10,13 @@ function TabContainer() {
   return (
     <Drawer.Navigator
       drawerContent={props => <SideDrawer {...props} />}
-      screenOptions={{ headerShown: false }}>
+      screenOptions={{headerShown: false}}>
       {tabs.map(tab => (
-        <Drawer.Screen key={tab.name} name={tab.name} component={tab.component} />
+        <Drawer.Screen
+          key={tab.name}
+          name={tab.name}
+          component={tab.component}
+        />
       ))}
     </Drawer.Navigator>
   );

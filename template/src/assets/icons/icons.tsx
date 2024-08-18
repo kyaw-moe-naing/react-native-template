@@ -1,3 +1,3 @@
-import { IconProps } from "types/components/icon/icon";
+import {IconProps} from 'types/components/icon/icon';
 
-export function Icon(props: IconProps) { }
+export function Icon(props: IconProps) {}
