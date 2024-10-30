@@ -26,7 +26,7 @@ This template includes the following essential libraries:
 To get started, run the following command:
 
 ```bash
-npx react-native@latest init ProjectName --template git@github.com:kyaw-moe-naing/react-native-template.git
+npx @react-native-community/cli@latest init ProjectName --template git@github.com:kyaw-moe-naing/react-native-template.git
 ```
 
 ## Project Structure
