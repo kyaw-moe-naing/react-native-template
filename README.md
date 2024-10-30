@@ -1,41 +1,58 @@
 # React Native Template
-A get-started template for React Native project including popular react native packages.
+
+Welcome to the **React Native Template!** This template serves as a robust starting point for your React Native projects, incorporating popular packages to streamline your development process.
+
+## 📚 Table of Contents
+
+1. [Dependencies](#dependencies)
+2. [Installation](#installation)
+3. [Project Structure](#project-structure)
 
 ## Dependencies
-- React Navigation https://reactnavigation.org
-- RTK https://redux-toolkit.js.org
-- RTK Query https://redux-toolkit.js.org/tutorials/rtk-query
-- Day.js https://day.js.org
-- React Native Config https://www.npmjs.com/package/react-native-config
-- React Native Pager View https://github.com/callstack/react-native-pager-view
-- React Native Spinkit https://www.npmjs.com/package/react-native-spinkit
-- React Native SVG https://www.npmjs.com/package/react-native-svg
+
+This template includes the following essential libraries:
+
+- [React Navigation](https://reactnavigation.org): Navigate easily between screens in your app.
+- [RTK (Redux Toolkit)](https://redux-toolkit.js.org): Simplify state management with Redux.
+- [RTK Query](https://redux-toolkit.js.org/tutorials/rtk-query): Efficiently fetch, cache, and synchronize data.
+- [Day.js](https://day.js.org): A lightweight date manipulation library.
+- [React Native Config](https://www.npmjs.com/package/react-native-config): Manage environment variables effortlessly.
+- [React Native Pager View](https://github.com/callstack/react-native-pager-view): Implement swipeable views with ease.
+- [React Native Spinkit](https://www.npmjs.com/package/react-native-spinkit): Add beautiful loading indicators.
+- [React Native SVG](https://www.npmjs.com/package/react-native-svg): Render SVG images and graphics.
 
 ## Installation
-```
+
+To get started, run the following command:
+
+```bash
 npx react-native@latest init ProjectName --template git@github.com:kyaw-moe-naing/react-native-template.git
 ```
 
 ## Project Structure
-```bash
+
+Here's a quick overview of the project structure:
+
+```plaintext
 src
-   - app (RTK)
-      - services (API Endpoints)
-   - assets
-      - icons (SVG Icons)
-      - images (Graphics)
-   - components
-      - drawer
-      - tab
-   - navigation
-      - containers
-   - screens
-      - auth
-      - tabs
-         - home
-   - types
-      - components (Props)
-      - models (API Body/Response Models)
-   - utils
-      - hooks (Custom Hooks)
+   ├── app                # RTK (Redux Toolkit)
+   │   └── services       # API Endpoints
+   │   └── slices         # RTK Slices
+   ├── assets             # Static assets
+   │   ├── icons          # SVG Icons
+   │   └── images         # Graphics
+   ├── components         # Reusable components
+   │   ├── drawer         # Drawer components
+   │   └── tab            # Tab components
+   ├── navigation         # App Navigation
+   │   ├── containers     # Navigation Containers
+   ├── screens            # App screens
+   │   ├── auth           # Authentication screens
+   │   └── tabs           # Tabbed navigation
+   │       └── home       # Home screen
+   ├── types              # Type definitions
+   │   ├── components     # Props types
+   │   └── models         # API Body/Response Models
+   └── utils              # Utility functions
+       └── hooks          # Custom Hooks
 ```

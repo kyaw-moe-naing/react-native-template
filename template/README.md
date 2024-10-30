@@ -1,79 +1,99 @@
-This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
+# ReactNativeTemplate
 
-# Getting Started
+This project is built using the [React Native Template](https://github.com/kyaw-moe-naing/react-native-template.git).
 
->**Note**: Make sure you have completed the [React Native - Environment Setup](https://reactnative.dev/docs/environment-setup) instructions till "Creating a new application" step, before proceeding.
+## 📚 Contents
 
-## Step 1: Start the Metro Server
+- [Project Structure](#project-structure)
+- [Environment Setup](#environment-setup)
+- [SVG Icons Usage](#svg-icons-usage)
+- [Signing and Release](#signing-and-release)
 
-First, you will need to start **Metro**, the JavaScript _bundler_ that ships _with_ React Native.
+## Project Structure
 
-To start Metro, run the following command from the _root_ of your React Native project:
+Here's a quick overview of the project structure:
 
-```bash
-# using npm
-npm start
-
-# OR using Yarn
-yarn start
+```plaintext
+src
+   ├── app                # RTK (Redux Toolkit)
+   │   └── services       # API Endpoints
+   │   └── slices         # RTK Slices
+   ├── assets             # Static assets
+   │   ├── icons          # SVG Icons
+   │   └── images         # Graphics
+   ├── components         # Reusable components
+   │   ├── drawer         # Drawer components
+   │   └── tab            # Tab components
+   ├── navigation         # App Navigation
+   │   ├── containers     # Navigation Containers
+   ├── screens            # App screens
+   │   ├── auth           # Authentication screens
+   │   └── tabs           # Tabbed navigation
+   │       └── home       # Home screen
+   ├── types              # Type definitions
+   │   ├── components     # Props types
+   │   └── models         # API Body/Response Models
+   └── utils              # Utility functions
+       └── hooks          # Custom Hooks
 ```
 
-## Step 2: Start your Application
+### Environment Setup
 
-Let Metro Bundler run in its _own_ terminal. Open a _new_ terminal from the _root_ of your React Native project. Run the following command to start your _Android_ or _iOS_ app:
+The environment is configured using [React Native Config](https://www.npmjs.com/package/react-native-config) to support two environments: **development** and **production**.
 
-### For Android
+- **Development**: Loaded from `.env.development` located at [/template/.env.development](./template/.env.development)
+- **Production**: Loaded from `.env` located at [/template/.env](./template/.env)
 
-```bash
-# using npm
-npm run android
+#### 📱 Android
 
-# OR using Yarn
-yarn android
+In the [app/build.gradle](/android/app/build.gradle) file, the environments are configured as follows:
+
+```groovy
+project.ext.envConfigFiles = [
+   debug: ".env.development",
+   release: ".env",
+]
 ```
 
-### For iOS
+#### 🍏 iOS
 
-```bash
-# using npm
-npm run ios
+In the [ios/Podfile](/ios/Podfile), the environments are configured as follows:
 
-# OR using Yarn
-yarn ios
+```ruby
+ENVFILES = {
+   'Debug' => '$(PODS_ROOT)/../../.env.development',
+   'Release' => '$(PODS_ROOT)/../../.env',
+}
 ```
 
-If everything is set up _correctly_, you should see your new app running in your _Android Emulator_ or _iOS Simulator_ shortly provided you have set up your emulator/simulator correctly.
+### SVG Icons Usage
 
-This is one way to run your app — you can also run it directly from within Android Studio and Xcode respectively.
+1. Copy and paste your `.svg` file into [src/assets/icons](/template/src/assets/icons/) folder.
+2. Import your `.svg` file inside a React component:
 
-## Step 3: Modifying your App
+```typescript
+import ReactLogo from 'assets/icons/React.svg';
+```
 
-Now that you have successfully run the app, let's modify it.
+3. You can then use your image as a component:
 
-1. Open `App.tsx` in your text editor of choice and edit some lines.
-2. For **Android**: Press the <kbd>R</kbd> key twice or select **"Reload"** from the **Developer Menu** (<kbd>Ctrl</kbd> + <kbd>M</kbd> (on Window and Linux) or <kbd>Cmd ⌘</kbd> + <kbd>M</kbd> (on macOS)) to see your changes!
+```typescript
+<ReactLogo width={120} height={40} />
+```
 
-   For **iOS**: Hit <kbd>Cmd ⌘</kbd> + <kbd>R</kbd> in your iOS Simulator to reload the app and see your changes!
+## Signing and Release
 
-## Congratulations! :tada:
+### Android
 
-You've successfully run and modified your React Native App. :partying_face:
+To sign the Android app:
 
-### Now what?
+1. Please see [Publishing to Google Play Store](https://reactnative.dev/docs/signed-apk-android) to generate a keystore file.
+2. Save the keystore file locally and set the `storeFile` path in [key.properties](/android/key.properties):
 
-- If you want to add this new React Native code to an existing application, check out the [Integration guide](https://reactnative.dev/docs/integration-with-existing-apps).
-- If you're curious to learn more about React Native, check out the [Introduction to React Native](https://reactnative.dev/docs/getting-started).
+```bash
+   storeFile=/path/to/key.keystore
+```
 
-# Troubleshooting
+### iOS
 
-If you can't get this to work, see the [Troubleshooting](https://reactnative.dev/docs/troubleshooting) page.
-
-# Learn More
-
-To learn more about React Native, take a look at the following resources:
-
-- [React Native Website](https://reactnative.dev) - learn more about React Native.
-- [Getting Started](https://reactnative.dev/docs/environment-setup) - an **overview** of React Native and how setup your environment.
-- [Learn the Basics](https://reactnative.dev/docs/getting-started) - a **guided tour** of the React Native **basics**.
-- [Blog](https://reactnative.dev/blog) - read the latest official React Native **Blog** posts.
-- [`@facebook/react-native`](https://github.com/facebook/react-native) - the Open Source; GitHub **repository** for React Native.
+Please see more on [Publishing to Apple App Store](https://reactnative.dev/docs/publishing-to-app-store).
